@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import BarChartIcon from '@mui/icons-material/BarChart';
 // import Button from '@mui/material/Button';
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const pages = ['Products', 'Pricing', 'About'];
@@ -39,9 +39,13 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  const submit = () =>{
-    <Navigate to="/login" />
+  
+    let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `login`; 
+    navigate(path);
   }
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -133,7 +137,7 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-          <Button variant="contained" color='success' onClick={submit}>Login</Button>
+          <Button variant="contained" color='success' onClick={routeChange}>Login</Button>
             {/* <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

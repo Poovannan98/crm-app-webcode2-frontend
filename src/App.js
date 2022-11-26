@@ -1,6 +1,6 @@
 import './App.css';
-// import ResponsiveAppBar from './Components/AppBar';
-// import Home from './Components/Home';/
+import ResponsiveAppBar from './Components/AppBar';
+import Home from './Components/Home';
 import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./Components/Login_Components/Main";
 import Signup from "./Components/Login_Components/Signup";
@@ -14,9 +14,9 @@ function App() {
   const user = localStorage.getItem("token");
   return (
     <div className="App">
-      {/* <ResponsiveAppBar/> */}
+      <ResponsiveAppBar/>
       <Routes>
-      {/* <Route path='/home' exact element={<Home/>} />       */}
+      <Route path='/home' exact element={<Home/>} />      
 			{user && <Route path="/" exact element={<Main />} />}
 			<Route path="/signup" exact element={<Signup />} />
 			<Route path="/login" exact element={<Login />} />
